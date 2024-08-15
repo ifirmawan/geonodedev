@@ -1,0 +1,14 @@
+// import the utils/mixins from bootstrap without compile the whole style
+@import (reference) "../node_modules/bootstrap/less/bootstrap.less";
+
+// all the style for mapstore client should be wrapped inside the .msgapi class
+.msgapi {
+  // use the .button-variant function from bootstrap to apply the correct style to the primary and success style
+  .btn-primary {
+    .button-variant(#1b1b1b; #ffa632; #ac6f1f;);
+  }
+  .btn-success {
+    .button-variant(#ffffff; #2ea372; #0f774c;);
+  }
+  // add other overrides if needed
+}

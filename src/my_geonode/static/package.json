@@ -1,0 +1,29 @@
+{
+  "name": "my_geonode",
+  "version": "0.0.1",
+  "author": "GeoNode Developers",
+  "description": "Static code and assets for my_geonode",
+  "contributors": [
+    {}
+  ],
+  "scripts": {
+    "test": "jshint **.js",
+    "compile-less": "lessc -x ./less/site_base.less ./css/site_base.css",
+    "watch-less": "less-watch-compiler ./less/ ./css/ site_base.less"
+  },
+  "license": "BSD",
+  "private": "false",
+  "devDependencies": {
+    "del": "*",
+    "gulp": "^3.9.0",
+    "gulp-concat": "*",
+    "gulp-less": "*",
+    "gulp-util": "*",
+    "less": "^4.2.0",
+    "less-watch-compiler": "^1.16.3",
+    "path": "*"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  }
+}

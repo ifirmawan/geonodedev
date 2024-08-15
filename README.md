@@ -1,4 +1,4 @@
-# {{ project_name|title }}
+# Eswatini Drought Monitoring
 
 GeoNode template project. Generates a django project with GeoNode support.
 

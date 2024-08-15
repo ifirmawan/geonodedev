@@ -1,0 +1,24 @@
+{% load static %}
+<style>
+    #gn-hero {
+        background-image: url("{% static 'img/hero.jpg' %}");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: rgb(156, 156, 156);
+        background-blend-mode: multiply;
+    }
+    #gn-hero .jumbotron .gn-hero-description h1 {
+        width: 800px;
+    }
+</style>
+<div id="gn-hero" class="gn-hero">
+    <div class="jumbotron">
+        <div class="gn-hero-description">
+            <h1>Eswatini Drought Monitoring</h1>
+            <p>Tracking Drought Trends in Eswatini with Up-to-Date Data</p>
+        </div>
+        <p class="gn-hero-tools">
+        </p>
+    </div>
+</div>

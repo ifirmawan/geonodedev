@@ -57,7 +57,7 @@ WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 LANGUAGE_CODE = os.getenv("LANGUAGE_CODE", "en")
 
 if PROJECT_NAME not in INSTALLED_APPS:
-    INSTALLED_APPS += (PROJECT_NAME,)
+    INSTALLED_APPS += (PROJECT_NAME, "eswatini", )
 
 # Location of url mappings
 ROOT_URLCONF = os.getenv("ROOT_URLCONF", "{}.urls".format(PROJECT_NAME))
@@ -79,6 +79,9 @@ loaders = TEMPLATES[0]["OPTIONS"].get("loaders") or [
 # loaders.insert(0, 'apptemplates.Loader')
 TEMPLATES[0]["OPTIONS"]["loaders"] = loaders
 TEMPLATES[0].pop("APP_DIRS", None)
+
+#  Add the Eswatini to use Django view
+TEMPLATES[0]['DIRS'].insert(1, os.path.join('eswatini', "templates"))
 
 LOGGING = {
     "version": 1,

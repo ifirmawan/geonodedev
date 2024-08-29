@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+{% block container %}
+    <h1>Geocollection: <b>{{ object.name }}</b></h1>
+    <p>You have the permission to access the Geocollection: {{ object.name }}</p>
+    <p>Geocollection Permissions:</p>
+    <form action="/geocollections/permissions/{{ object.slug }}/" method="POST" name="geocollections_perm_spec_form">
+       {% csrf_token %}
+       <label for="perm_spec">Perm Spec: </label><br>
+       <textarea id="perm_spec" name="perm_spec" rows=4 cols="50">{{ object.get_all_level_info }}</textarea><br>
+       <input type="submit" value="Change Permissions">
+    </form>
+{% endblock %}
+
+{% block extra_script %}
+{{ block.super }}
+{% endblock extra_script %}

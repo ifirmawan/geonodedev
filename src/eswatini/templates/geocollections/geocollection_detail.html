@@ -1,0 +1,19 @@
+{% extends "page.html" %}
+{% block container %}
+<div class="geocollection-custom-page-container">
+    <p class="h1">Geocollection: <strong>{{ object.name }}</strong></p>
+    {% if user.is_superuser %}
+    <a href="/geocollections/permissions/{{ object.slug }}">Edit Permissions</a>
+    {% endif %}
+    <p>Group: <i>{{ object.group.title }}</i></p>
+    <p>Resources:</p>
+    <ul class="list-group">
+        {% for resource in object.resources.all %}
+            <li class="list-group-item bordertopbottom">
+              <div><a href="{{ resource.detail_url }}" target="_blank">{{ resource.title }}</a><div>
+              <div>{{ resource.custom_md|safe }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

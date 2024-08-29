@@ -17,14 +17,24 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 #########################################################################
-
+from django.conf.urls import include
+from django.urls import re_path as url
 from geonode.urls import urlpatterns
+from geonode.api.urls import api
+from geonode.api.urls import router
 
-"""
+from eswatini.api import GeocollectionResource
+from eswatini.views import get_about_view
+from eswatini.views import GeocollectionViewSet, BulletinViewSet
+
+api.register(GeocollectionResource())
+router.register(r"geocollections", GeocollectionViewSet, "geocollections")
+router.register(r"bulletins", BulletinViewSet, "bulletins")
+
 # You can register your own urlpatterns here
-urlpatterns = [
-    url(r'^/?$',
-        homepage,
-        name='home'),
- ] + urlpatterns
-"""
+urlpatterns += [
+    url(r"", include(api.urls)),
+    url(r"^api/v2/", include(router.urls)),
+    url(r"^geocollections/", include("eswatini.urls")),
+    url(r"^about-us/", get_about_view, name="eswatini-about-us"),
+]
